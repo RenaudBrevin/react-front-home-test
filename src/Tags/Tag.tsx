@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { TagType } from "./TagType";
 
-export const Tag = ({ tag }: { tag: TagType }) => {
-  const [selectedTag, setSelectedTag] = useState("");
+export const Tag = ({ tag, setFilter }: { tag: TagType, setFilter: (filter: string) => void }) => {
   return (
-    <div
+    <button 
       style={{
         margin: "10px",
         padding: "5px",
@@ -14,8 +13,9 @@ export const Tag = ({ tag }: { tag: TagType }) => {
         justifyContent: "center",
         backgroundColor: `${tag.color}`
       }}
-    >
-      {tag.name.fr}
-    </div>
+      onClick={() => setFilter(tag.id)}>
+        {tag.name.fr}
+      </button>
   );
 };
+

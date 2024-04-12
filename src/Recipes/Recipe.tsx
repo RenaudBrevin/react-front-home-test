@@ -4,9 +4,18 @@ import IngredientsWithQuantity from "../Ingredients/IngredientsWithQuantity";
 import { useState } from "react";
 import { Tags } from "../Tags/Tags";
 
-export const Recipe = ({ recipe }: { recipe: RecipeType }) => {
+interface TagProps {
+  recipe: RecipeType;
+  setFilter: (filter: string) => void;
+}
+
+
+
+export const Recipe: React.FC<TagProps> = ({ recipe, setFilter }) => {
   const [showSteps, setShowSteps] = useState<Boolean>(false);
   const [showIngredients, setShowIngredients] = useState<boolean>(false);
+
+  console.log(recipe.tags);
 
   return (
     <div
@@ -50,7 +59,7 @@ export const Recipe = ({ recipe }: { recipe: RecipeType }) => {
             justifyContent: "center",
           }}
         >
-          <Tags tags={recipe.tags} />
+          <Tags tags={recipe.tags} setFilter={setFilter} />
         </div>
         <div
           style={{

@@ -1,7 +1,12 @@
 import { Tag } from "./Tag";
 import { TagType } from "./TagType";
 
-export const Tags = ({ tags }: { tags: TagType[] }) => {
+interface TagsProps {
+  tags: TagType[];
+  setFilter: (filter: string) => void;
+}
+
+export const Tags: React.FC<TagsProps> = ({ tags, setFilter }) => {
   return (
     <div
       style={{
@@ -13,8 +18,8 @@ export const Tags = ({ tags }: { tags: TagType[] }) => {
         justifyContent: "center",
       }}
     >
-      {tags.map((obj) => (
-        <Tag tag={obj} />
+      {tags.map((tag) => (
+        <Tag key={tag.id} tag={tag} setFilter={setFilter} />
       ))}
     </div>
   );

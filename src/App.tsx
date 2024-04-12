@@ -11,6 +11,8 @@ import {
   autumnRecipes,
   veganRecipes,
   chocolateDessertRecipes,
+  fruitRecipes,
+  easyRecipes
 } from "./Recipes/RecipeData";
 import { TagList } from "./Tagfilter/ListeDesTags";
 import { tagList } from "./Tags/TagData";
@@ -20,24 +22,15 @@ export default function App() {
   return (
     <div className="App">
       Liste des recettes
-      <TagList tags={tagList} />
-      <button onClick={() => setFilter("chocolate")}>Chocolat</button>
-      <button onClick={() => setFilter("sugar")}>Sucre</button>
-      <button onClick={() => setFilter("summer")}>Eté</button>
-      <button onClick={() => setFilter("dessert")}>Dessert</button>
-      <button onClick={() => setFilter("chocolate dessert")}>
-        dessert chocolat
-      </button>
-      <button onClick={() => setFilter("eggs free")}>Sans Oeufs</button>
-      <button onClick={() => setFilter("autumn")}> Autumn</button>
-      <button onClick={() => setFilter("vegan")}> Vegan</button>
+      <TagList tags={tagList} setFilter={setFilter} />
+
       {filter === "all" && <Recipes recipes={allRecipes} />}
+      {filter === "fruit" && <Recipes recipes={fruitRecipes} />}
+      {filter === "easy" && <Recipes recipes={easyRecipes} />}
       {filter === "sugar" && <Recipes recipes={sugarRecipes} />}
       {filter === "summer" && <Recipes recipes={summerRecipes} />}
       {filter === "dessert" && <Recipes recipes={dessertRecipes} />}
-      {filter === "chocolate dessert" && (
-        <Recipes recipes={chocolateDessertRecipes} />
-      )}
+      {filter === "chocolate dessert" && (<Recipes recipes={chocolateDessertRecipes} />)}
       {filter === "eggs free" && <Recipes recipes={noEggsRecipes} />}
       {filter === "chocolate" && <Recipes recipes={chocolateRecipes} />}
       {filter === "autumn" && <Recipes recipes={autumnRecipes} />}

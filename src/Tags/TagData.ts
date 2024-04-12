@@ -90,3 +90,4 @@ export const tagList: TagType[] = [
   fruit,
   easy,
 ];
+
