@@ -6,6 +6,9 @@ import {
   flour,
   redFruits,
   sugar,
+  salad,
+  cucumber,
+  feta,
 } from "../Ingredients/IngredientData";
 
 import { StepType as StepType } from "./StepType";
@@ -101,5 +104,68 @@ export const stepsTarteAuxPoires: StepType[] = [
     description:
       "Verser la préparation sur le fond de la pâte. Disposer les poires. Enfourner 50 mn à 180°",
     order: 5,
+  },
+];
+
+export const stepsCookies: StepType[] = [
+  {
+    description: "Préchauffer le four à 180°C.",
+    order: 1,
+  },
+  {
+    description: "Mélanger le beurre fondu avec le sucre.",
+    order: 2,
+    ingredients: [
+      { ingredient: butter, quantity: 250, unit: "g" },
+      { ingredient: sugar, quantity: 200, unit: "g" },
+    ],
+  },
+  {
+    description: "Ajouter les oeufs.",
+    order: 2,
+    ingredients: [{ ingredient: egg, quantity: 2 }],
+  },
+  {
+    description: "Ajouter la farine et la levure.",
+    order: 4,
+    ingredients: [
+      { ingredient: flour, quantity: 500, unit: "g" },
+    ],
+  },
+  {
+    description: "Ajouter les pépites de chocolat.",
+    order: 5,
+    ingredients: [{ ingredient: chocolate, quantity: 250, unit: "g" }],
+  },
+  {
+    description: "Faire des petites boules de pâte sur une plaque.",
+    order: 6,
+  },
+  {
+    description: "Enfourner 10 minutes.",
+    order: 7,
+  },
+];
+
+
+export const stepsWaldorfSalad: StepType[] = [
+  {
+    description: "Couper la salade en morceaux.",
+    order: 1,
+    ingredients: [{ ingredient: salad, quantity: 1 }],
+  },
+  {
+    description: "Couper le concombre en rondelles.",
+    order: 2,
+    ingredients: [{ ingredient: cucumber, quantity: 1 }],
+  },
+  {
+    description: "Emietter la feta.",
+    order: 3,
+    ingredients: [{ ingredient: feta, quantity: 150, unit: "g" }],
+  },
+  {
+    description: "Mélanger le tout.",
+    order: 4,
   },
 ];

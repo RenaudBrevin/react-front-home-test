@@ -20,6 +20,8 @@ import {
   stepsFondantChocolat,
   stepsPavlova,
   stepsTarteAuxPoires,
+  stepsCookies,
+  stepsWaldorfSalad
 } from "../Steps/StepData";
 
 import {
@@ -29,6 +31,8 @@ import {
   summer,
   vegan,
   winter,
+  fruit,
+  easy,
 } from "../Tags/TagData";
 
 const pavlova: RecipeType = {
@@ -44,7 +48,7 @@ const pavlova: RecipeType = {
     { ingredient: redFruits, quantity: 100, unit: "g" },
     { ingredient: cream, quantity: 20, unit: "cl" },
   ],
-  tags: [summer, dessert],
+  tags: [summer, dessert, fruit],
 };
 
 const fondantChocolat: RecipeType = {
@@ -52,7 +56,7 @@ const fondantChocolat: RecipeType = {
   description:
     "Le fondant au chocolat est un gâteau au chocolat qui fond en bouche",
   imageURL:
-    "https://www.guydemarle.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc0ZvIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--333bff76e254e1934153f809f2d9cc2b5967da52/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VWTI5dFltbHVaVjl2Y0hScGIyNXpld2c2QzNKbGMybDZaVWtpRFRZd01IZzJNREJlQmpvR1JWUTZER2R5WVhacGRIbEpJZ3REWlc1MFpYSUdPd2RVT2dsamNtOXdTU0lRTmpBd2VEWXdNQ3N3S3pBR093ZFUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--929a1958a8630156464b089800ca739f1b4570de/fondant-au-chocolat.jpg",
+    "https://lacuisinedegeraldine.fr/wp-content/uploads/2020/12/DSC00413-scaled.jpg",
   ingredients: [chocolate, egg, flour, butter, sugar],
   etapes: stepsFondantChocolat,
   ingredientsWithQuantity: [
@@ -78,7 +82,7 @@ const pearPie: RecipeType = {
     { ingredient: sugar, quantity: 150, unit: "g" },
     { ingredient: egg, quantity: 2 },
   ],
-  tags: [dessert, autumn],
+  tags: [dessert, autumn, fruit],
 };
 
 const waldorfSalad: RecipeType = {
@@ -87,6 +91,7 @@ const waldorfSalad: RecipeType = {
   imageURL:
     "https://assets.afcdn.com/recipe/20190704/94666_w420h420c1cx2689cy1920cxb5378cyb3840.webp",
   ingredients: [salad, cucumber, feta],
+  etapes: stepsWaldorfSalad,
   ingredientsWithQuantity: [
     { ingredient: salad, quantity: 1 },
     {
@@ -95,7 +100,24 @@ const waldorfSalad: RecipeType = {
     },
     { ingredient: feta, quantity: 150, unit: "g" },
   ],
-  tags: [appetizer, summer, vegan],
+  tags: [appetizer, summer, vegan, easy],
+};
+
+const cookies: RecipeType = {
+  nom: "Cookies aux pépites de chocolat",
+  description: "Super cookies aux pépites de chocolat pour le goûter",
+  imageURL:
+    "https://www.guydemarle.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd3BuQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--24af884771d60d3ef4524d624dae406ac37ad3f6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VWTI5dFltbHVaVjl2Y0hScGIyNXpld2c2QzNKbGMybDZaVWtpRFRZd01IZzJNREJlQmpvR1JWUTZER2R5WVhacGRIbEpJZ3REWlc1MFpYSUdPd2RVT2dsamNtOXdTU0lRTmpBd2VEWXdNQ3N3S3pBR093ZFUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--929a1958a8630156464b089800ca739f1b4570de/cookies-11-0.jpg",
+  ingredients: [flour, egg, butter, sugar, chocolate],
+  etapes: stepsCookies,
+  ingredientsWithQuantity: [
+    { ingredient: flour, quantity: 500, unit: "g" },
+    { ingredient: egg, quantity: 2 },
+    { ingredient: butter, quantity: 250, unit: "g" },
+    { ingredient: sugar, quantity: 200, unit: "g" },
+    { ingredient: chocolate, quantity: 250, unit: "g" },
+  ],
+  tags: [dessert, easy],
 };
 
 export const allRecipes: ListOfRecipes = [
@@ -103,6 +125,7 @@ export const allRecipes: ListOfRecipes = [
   fondantChocolat,
   pearPie,
   waldorfSalad,
+  cookies,
 ];
 
 export const summerRecipes = allRecipes.filter((recipe) => {
